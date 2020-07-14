@@ -49,14 +49,14 @@ FixStatus = {-1 : 'No Fix',
 
 class ReachRsDriver(object):
     def __init__(self):
-        host = rospy.get_param('~reach_rs_host_or_ip', 'reach.local')
-        port = rospy.get_param('~reach_rs_port')
+        host = rospy.get_param('reach_rs_host_or_ip', 'reach.local')
+        port = rospy.get_param('reach_rs_port')
         self.address = (host, port)
 
         self.socket = None
 
-        self.frame_id = rospy.get_param('~reach_rs_frame_id', 'reach_rs')
-        self.fix_timeout = rospy.get_param('~fix_timeout', 0.5)
+        self.frame_id = rospy.get_param('reach_rs_frame_id', 'reach_rs')
+        self.fix_timeout = rospy.get_param('fix_timeout', 0.5)
         
         self.driver = enway_reach_rs_driver.driver.RosNMEADriver()
         
